@@ -1,0 +1,123 @@
+id,title,description,preconditions,postconditions,tags,priority,severity,type,behavior,automation,status,is_flaky,layer,steps_type,steps_actions,steps_result,steps_data,milestone_id,milestone,suite_id,suite_parent_id,suite,suite_without_cases,parameters
+,,,,,,,,,,,,,,,,,,,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",1
+26,"Подключение вручную через порт и IP адрес",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установлено приложение
+2. Запущено приложение ""TCP Chat Client""
+3. Кнопка ""Listen"" активна у ""TCP Chat Server"" 
+4. Параметры Сервера и чата конфигурируемы (Port 245)",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Ввести Nickname в поле ""Nickname""
+2. Ввести IP в поле ""IP""
+3. Ввести Port в поле ""Port""
+4. Нажать на кнопку ""Connect""
+","1. Система валидирует введенное значение Nickname
+2. Система валидирует введенное значение IP
+3. Система валидирует введенное значение Port
+4. Происходит успешное подключение к серверу
+Отображение в текстовом поле сообщений:
+
+1. Connecting to server ...
+2. Connected!
+3. \<SERVER> ""Указанный Nickname"" entered chat
+","1. 
+2. 
+3. 
+4. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"IP:127.0.0.1
+Port:245
+Nickname:Tom Marello"
+27,"Отправление текстовых сообщений в чат",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""
+3. Пользователь подключен к серверу",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Ввести сообщение в поле ""Say something""
+2. Нажать на кнопку ""Send""
+","1. Система валидирует веденное сообщение
+2. Введенное сообщение ""Say something"" отображается в текстовом поле у всех пользователей в окне ""TCP Chat Client"" и в окне ""TCP Chat Server""
+","1. 
+2. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"""Say something"":Hey dawg! How ur u?"
+28,"Отображение текстового сообщения в чате у всех пользователей подключенных к серверу",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""
+3. Отправить сообщение под Nickname\_1",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. ""TCP Chat Client"" открыть под пользователем Nickname_2
+2. Проверить сообщение от Nickname_1
+","1. ""TCP Chat Client"" открыт под пользователем Nickname_2
+2. Сообщение от Nickname_1 отображено для всех пользователей online
+","1. 
+2. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,
+29,"Отображение подключения к серверу в текстовом поле",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Подключиться вручную через IP и Port
+2. Проверить технические сообщения подключения к серверу
+3. Проверить временную метку отправленного сообщения
+","1. Подключение к серверу выполнено успешно
+2. Отображены следующие сообщения от подключенного пользователя ""Connecting to server ..."" и ""Connected!"" только у данного пользователя
+3. Временная метка отображается у отправленного сообщения в разделах""TCP Chat Client"" и ""TCP Chat Server""
+","1. 
+2. 
+3. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"IP:127.0.0.1
+Port:245"
+30,"Отображение сообщения об ошибке в текстовом поле",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""
+3. Порты неконфигурируемы",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Ввести Nickname в поле ""Nickname""
+2. Ввести IP в поле ""IP""
+3. Ввести Port в поле ""Port"" в разделе ""TCP Chat Client""
+4. Ввести Port в поле ""Port"" в разделе ""TCP Chat Server""
+5. Нажать кнопку ""Connect""
+","1. Система валидирует введенное значение Nickname
+2. Система валидирует введенное значение IP
+3. Система валидирует введенное значение Port
+4. Система валидирует введенное значение Port
+5. Подключение не успешно к серверу и со стороны сервера отображена ошибка ""Cannot enter to chat"", со стороны ""TCP Chat Server is stop""
+","1. 
+2. 
+3. 
+4. 
+5. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"IP:127.0.0.1
+Port в разделе ""TCP Chat Server"":999
+Port в разделе ""TCP Chat Client"":245"
+31,"Отображение сообщения сети в текстовом поле",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""
+3. Пользователь подключен к сети ""TCP Chat Client""
+4. Кнопка ""listen"" активна",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Отправить сообщение под Nickname_1
+2. Открыть раздел ""TCP Chat Client"" под Nickname_2
+","1. Сообщение отображается в большом текстовом поле
+2. Отображение сообщение от Nickname_1 формате :
+<Nickname_1>: ""Тело сообщения""
+","1. 
+2. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"""Say something"":Hey dawg! How ur u?"
+32,"Сервер включен при активной кнопки ""Listen""",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Server""
+3. Server выключен",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Активировать кнопку ""Listen""
+","1. Сервер включен. В окне ""TCP Chat Server"" отображается кнопка ""Listen"". Отображается список пользователей online
+","1. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,
+33,"Сервер выключен при клике на кнопку ""Stop""",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Server""
+3. Server включен",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Активировать кнопку ""Stop""
+","1. Сервер выключен. В окне ""TCP Chat Server"" отображается кнопка ""Stop"". Список пользователей online не отображается
+","1. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,
+34,"Отображение никнеймов online в листбокс",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Server""
+3. Сервер включен
+4. В режиме online находятся несколько пользователей",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Открыть раздел ""TCP Chat Server""
+","1. 1. В листбоксе отображаются все пользователи в режиме online
+","1. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,
+35,"Параметры Сервера и Клиента конфигурируемы",[Макет](https://disk.yandex.ru/d/oj7B8L3o5jQwHw),"1. Установить приложение
+2. Открыть раздел ""TCP Chat Client""
+3. Отображено значение 245 в поле ""Port"" для ""TCP Chat Server""
+4. Кнопка ""listen"" активна в ""TCP Chat Server""",,,undefined,normal,other,undefined,is-not-automated,actual,no,unknown,classic,"1. Ввести Nickname в поле ""Nickname""
+2. Ввести IP в поле ""IP""
+3. Ввести Port в поле ""Port""
+4. Клик по кнопке ""Connect""
+","1. Система валидирует введенное значение Nickname
+2. Система валидирует введенное значение IP
+3. Система валидирует введенное значение Port
+4. Подключение к порту ""245"". Отображение пользователей online в листбокс
+","1. 
+2. 
+3. 
+4. 
+",,,5,,"Десктопный сетевой чат (клиент-серверный, TCP).",,"""Nickname"":Nickname_1
+IP:127.0.0.1
+Port:245"
