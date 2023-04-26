@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "b11bfed0-02df-4346-9181-bd3e2b315295",
+		"name": "Nasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26566298",
+		"_collection_link": "https://interstellar-shadow-629423.postman.co/workspace/Team-Workspace~ab7233fe-6e28-459f-85ed-554c65447a70/collection/26566298-b11bfed0-02df-4346-9181-bd3e2b315295?action=share&creator=26566298&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get Photos by earth_date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var body = pm.response.json()\r",
+							"let get_params = pm.request.url.query.toObject()\r",
+							"\r",
+							"var SecondPhotoid = body.photos[1].id\r",
+							"console.log(SecondPhotoid)\r",
+							"\r",
+							"pm.environment.set(\"SecondPhotoid\", SecondPhotoid);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"earth_date from request = earth_date from response for second photo\", function () {\r",
+							"    pm.expect(body.photos[1].earth_date).to.eql(get_params.earth_date);\r",
+							"    console.log(body.photos[1].earth_date)\r",
+							"    console.log(get_params.earth_date)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "DEMO_KEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2022-01-21",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "earth_date",
+							"value": "2022-01-21",
+							"description": "\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Querying by Martian sol",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "DEMO_KEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/manifests/opportunity",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"manifests",
+						"opportunity"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mars photos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body contains id 268034\", function () {",
+							"pm.expect(pm.response.text()).to.include('\"id\":268034');",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "DEMO_KEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "api_key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1&camera=PANCAM",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"opportunity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "sol",
+							"value": "1"
+						},
+						{
+							"key": "camera",
+							"value": "PANCAM"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
